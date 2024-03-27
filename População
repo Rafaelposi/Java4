@@ -1,0 +1,27 @@
+public class Main {
+    public static void main(String[] args) {
+        // Dados dos países
+        int populacaoA = 5000000; // População do país A
+        double taxaNatalidadeA = 0.03; // Taxa de natalidade do país A (3% ao ano)
+        
+        int populacaoB = 7000000; // População do país B
+        double taxaNatalidadeB = 0.02; // Taxa de natalidade do país B (2% ao ano)
+
+        // Calcular quantos anos levará para a população de A ultrapassar a população de B
+        int anos = calcularAnos(populacaoA, taxaNatalidadeA, populacaoB, taxaNatalidadeB);
+
+        // Exibir o resultado
+        System.out.println("A população do país A ultrapassará a população do país B em " + anos + " anos.");
+    }
+
+    // Função para calcular em quantos anos a população de A ultrapassará a população de B
+    public static int calcularAnos(int populacaoA, double taxaNatalidadeA, int populacaoB, double taxaNatalidadeB) {
+        int anos = 0;
+        while (populacaoA <= populacaoB) {
+            populacaoA += (int) (populacaoA * taxaNatalidadeA);
+            populacaoB += (int) (populacaoB * taxaNatalidadeB);
+            anos++;
+        }
+        return anos;
+    }
+}
