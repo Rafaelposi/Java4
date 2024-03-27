@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Digite o número de termos (N): ");
+        int n = scanner.nextInt();
+        
+        for (int i = 1; i <= n; i++) {
+            int termo = obterTermo(i);
+            System.out.print(termo + " ");
+        }
+    }
+    
+    public static int obterTermo(int n) {
+        int termoBase = (n + 3) / 4;
+        int resto = n % 4;
+        
+        switch (resto) {
+            case 1:
+                return termoBase;
+            case 2:
+                return 4;
+            case 3:
+                return 4;
+            case 0:
+                return 2;
+            default:
+                return -1; // Caso de erro
+        }
+    }
+}
