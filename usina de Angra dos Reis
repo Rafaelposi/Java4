@@ -1,0 +1,21 @@
+public class Main {
+    public static void main(String[] args) {
+        double massaInicial = 1.0; // Massa inicial em gramas
+        double massaLimite = 0.10; // Massa limite em gramas
+        double taxaPerda = 0.25; // Taxa de perda de massa (25%)
+        int intervaloTempo = 30; // Intervalo de tempo em segundos
+
+        int tempo = calcularTempo(massaInicial, massaLimite, taxaPerda, intervaloTempo);
+
+        System.out.println("O tempo necessário para que a massa seja menor que 0,10 gramas é de aproximadamente " + tempo + " segundos.");
+    }
+
+    public static int calcularTempo(double massaInicial, double massaLimite, double taxaPerda, int intervaloTempo) {
+        int tempo = 0;
+        while (massaInicial > massaLimite) {
+            massaInicial *= (1 - taxaPerda); // Calcula a nova massa após a perda
+            tempo += intervaloTempo; // Incrementa o tempo
+        }
+        return tempo;
+    }
+}
